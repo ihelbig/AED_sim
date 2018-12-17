@@ -12,13 +12,6 @@ pos/sz -> freq
 nfreq <- 1-freq
 -log(nfreq,2) -> ic_neg
 
-# compare patient a and b
-
-subx <- ax[1:2,]
-subx[3,] <- NA
-
-
-
 #Assess probability at each time point
 
 matchx <- function(x)
@@ -49,7 +42,7 @@ AED_sim <- function(a1,a2)
   sum(subx[3,]) %>% return
 }
 
-#create 10 x 10 matrix
+#create  matrix
 
 patx <- rownames(ax)
 ll <- length(patx)
@@ -67,7 +60,6 @@ for (i in 1:10) # i rows
   }
 }
 
-sim_matrix %>% as.matrix %>% image(col = heat.colors(20))
+sim_matrix %>% as.matrix %>% image(col = heat.colors(1000))
 
-
-
+sim_matrix %>% as.matrix %>% hist()
